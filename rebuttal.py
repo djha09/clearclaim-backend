@@ -16,14 +16,16 @@ client = openai.OpenAI(
 def generate_rebuttal_from_pdf(pdf_text, reason):
     simplified = simplifyit(pdf_text)
     prompt = f"""
-    You are a professional insurance expert. Given the following simplified insurance policy:
+    You are a professional insurance expert. Given the following insurance policy:
 
     {simplified}
 
     And the claim was denied for this reason:
     "{reason}"
-
-    Please write a formal and persuasive rebuttal that clearly cites relevant policy terms and argues for reconsideration.
+    Your task is to write a direct , clear and firm Rebuttal that cites relevant policy terms and argues for reconsideration.
+    The rebuttal argues why the denial was invalid and is up for reconsideration
+    Keep your response short yet perfect as a rebuttal
+    Return your response in **Markdown Format**
     """
     try:
         response = client.chat.completions.create(

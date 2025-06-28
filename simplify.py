@@ -19,8 +19,10 @@ Here is an insurance policy document:
 
 \"\"\"{text}\"\"\"
 
-Please explain it in short yet be clear and concise and simply for a person with no legal or insurance knowledge. 
-Break it down like you're explaining it to a friend using plain English. You can also use situations to explain.
+Your task is to analyze the document and create a short yet direct , clear and consize summary of it .
+Your response should be in points.
+You should be abstractive.
+Return your answer in **Markdown format**
 """
     try:
         response = client.chat.completions.create(
