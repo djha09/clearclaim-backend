@@ -72,8 +72,5 @@ def verify_pdf():
         os.remove(filepath)
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # custom port for Render
+    port = int(os.environ.get("PORT", 10000))  # Use Render's port or default to 10000
+    app.run(host="0.0.0.0", port=port)
